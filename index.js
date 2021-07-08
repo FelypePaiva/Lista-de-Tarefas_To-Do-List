@@ -39,9 +39,7 @@ var list = new Vue({
         remove: function(atual, index){
             let elementos = document.querySelectorAll(".item")
             let elemento = elementos[index]
-            let proximoElemento = elementos[index + 1];
             let elementoSpan = elemento.querySelector("span")
-            let proximoElementoSpan = proximoElemento.querySelector("span")
             if(elemento.style.opacity <= "1" && elementoSpan.style.textDecoration == "line-through"){
                 elemento.style.opacity = "1"
                 elementoSpan.style.textDecoration = "none"
@@ -49,11 +47,9 @@ var list = new Vue({
             //Reorganiza a estilização CSS para manter a consistencia
             for(let i = index; i < elementos.length - 1;i++){
                 if(elementos[i + 1].style.opacity <= "1" && elementos[i + 1].querySelector("span").style.textDecoration == "line-through"){
-                    console.log("true")
                     elementos[i].style.opacity = "0.4";
                     elementos[i].querySelector("span").style.textDecoration = "line-through"
                 }else{
-                    console.log("false")
                     elementos[i].style.opacity = "1";
                     elementos[i].querySelector("span").style.textDecoration = "none"
                 }
